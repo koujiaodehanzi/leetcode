@@ -36,6 +36,7 @@ public class Num0018 {
         int[] arr = new int[]{1, 0, -1, 0, -2, 2};
         Arrays.sort(arr);
         sum(0, arr);
+//        nSum(arr, 0, 4, new ArrayList<Integer>());
         for (List<Integer> list : results){
             System.out.println(list);
         }
@@ -54,6 +55,7 @@ public class Num0018 {
                 if (j>0 && arr[j]==arr[j-1]){
                     continue;
                 }
+
                 int m = j+1;
                 int n = arr.length-1;
                 while(m < n){
@@ -75,6 +77,46 @@ public class Num0018 {
                     }
                 }
 
+            }
+        }
+    }
+
+    public static void nSum(int[] arr, int target, int n, List<Integer> result){
+        if (arr.length < n || n<2 || n*arr[0]> target || n*arr[arr.length-1]<target){
+            return;
+        }
+        if (n==2){
+            int start = 0;
+            int end = arr.length-1;
+            while (start<end){
+                int sum = arr[start] + arr[end];
+                if (sum > target){
+                    end--;
+                }else if (sum < target){
+                    start++;
+                }else {
+                    result.add(arr[start]);
+                    result.add(arr[end]);
+                    while (start < end && arr[start] == arr[start+1]){
+                        start++;
+                    }
+                    while (start < end && arr[end] == arr[end-1]){
+                        end--;
+                    }
+                }
+            }
+        }else{
+            for (int i=0; i<arr.length-n+1; i++){
+                if ((i>0 && arr[i]==arr[i+1]) || (arr[i]+n*arr[arr.length-1] < target)){
+                    continue;
+                }
+                if (n*arr[i] > target){
+                    break;
+                }
+                if (n*arr[i]==target && i+n-1<arr.length && arr[i+n-1]==arr[i]){
+
+                    nSum(arr, target-arr[i], n-1, result);
+                }
             }
         }
     }
