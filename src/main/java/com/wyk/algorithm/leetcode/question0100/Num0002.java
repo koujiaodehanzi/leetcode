@@ -7,7 +7,7 @@ import java.util.Queue;
 
 /**
  * @author wuyankun
- * @title: Num0001
+ * @title: Num0002
  * @projectName leetcode
  * @description: TODO
  * @date 2019/6/615:25

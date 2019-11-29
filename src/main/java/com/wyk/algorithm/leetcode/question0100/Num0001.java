@@ -13,18 +13,27 @@ import java.util.Map;
 public class Num0001 {
 
     public static void main(String[] args) {
-
+        int[] sum = twoSum(new int[]{3, 3}, 6);
+        for (int i:sum) {
+            System.out.println(i);
+        }
     }
 
-    public static int[] twoNumSum(int[] arr, int target){
+    public static int[] twoSum(int[] nums, int target){
+        if (nums == null || nums.length < 2){
+            return null;
+        }
+
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i=0; i<arr.length; i++){
-            if (map.containsKey(target-arr[i])){
-                return new int[]{map.get(target-arr[i]), arr[i]};
+        for (int i=0; i<nums.length; i++){
+            int sub = target-nums[i];
+            if (map.containsKey(sub)){
+                return new int[]{map.get(sub), i};
             }
-            map.put(arr[i], i);
+            map.put(nums[i], i);
         }
         return null;
     }
+
 
 }
