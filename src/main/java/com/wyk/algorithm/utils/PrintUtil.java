@@ -9,8 +9,10 @@ package com.wyk.algorithm.utils;
  */
 public class PrintUtil {
 
-    public static void printListWithList(int[] arr){
-
+    public static void printIntArr(int[] arr){
+        for (int i : arr){
+            System.out.println(i);
+        }
     }
 
 }
