@@ -10,9 +10,12 @@ package com.wyk.algorithm.utils;
 public class PrintUtil {
 
     public static void printIntArr(int[] arr){
+        StringBuilder result = new StringBuilder("[");
         for (int i : arr){
-            System.out.println(i);
+            result.append(i).append(",");
         }
+        result.deleteCharAt(result.length()-1).append("]");
+        System.out.println(result);
     }
 
 }

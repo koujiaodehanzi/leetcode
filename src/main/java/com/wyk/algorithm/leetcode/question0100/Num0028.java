@@ -44,7 +44,7 @@ public class Num0028 {
 
     public int[] get_next(String pat){
         int n=pat.length();
-        int[] next = new int[]{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};//这里数组大小为n+1，要算上pat[n-1]
+        int[] next = getDefaultIntArr(pat);//这里数组大小为n+1，要算上pat[n-1]
         int k=-1,j=0;
         while(j<n){
             if(k==-1||pat.charAt(k)==pat.charAt(j)) next[++j]=++k;//k，j指针都右移一位
@@ -53,20 +53,30 @@ public class Num0028 {
         return next;
     }
 
+
+
     //优化：get_nextVal
     public int[] get_nextVal(String pat){
         int n=pat.length();
-        int[] next = new int[]{-1,-1,-1,-1,-1,-1,-1};//这里next数组大小为n，已经算上pat[n-1]了
+        int[] next = getDefaultIntArr(pat);//这里next数组大小为n，已经算上pat[n-1]了
         int k=-1,j=0; //j:记录当前下标; k记录当前位的next
         while(j<n-1){
             if(k==-1||pat.charAt(k)==pat.charAt(j)){
                 k++;j++;
                 if(pat.charAt(j)!=pat.charAt(k)) next[j]=k;
-                else next[j]=k;
+                else next[j]=next[k];
             }
             else k=next[k];// 回溯当前位的next
         }
         return next;
+    }
+
+    private int[] getDefaultIntArr(String pat){
+        int [] arr = new int[pat.length()+1];
+        for (int i=0; i<pat.length(); i++){
+            arr[i] = -1;
+        }
+        return arr;
     }
 
 }

@@ -13,7 +13,7 @@ public class App
     public static void main( String[] args )
     {
         Num0028 num0028 = new Num0028();
-        int[] next = num0028.get_next("ABCDABDBCD");
+        int[] next = num0028.get_nextVal("ABCABDABCABCA");
         PrintUtil.printIntArr(next);
     }
 }
