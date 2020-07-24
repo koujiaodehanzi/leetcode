@@ -1,4 +1,4 @@
-package com.wyk.algorithm.leetcode.question0100;
+package com.wyk.algorithm.leetcode.question0000;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.wyk.algorithm;
 
-import com.wyk.algorithm.leetcode.question0100.Num0028;
+import com.wyk.algorithm.leetcode.question0000.Num0028;
 import com.wyk.algorithm.utils.PrintUtil;
 
 

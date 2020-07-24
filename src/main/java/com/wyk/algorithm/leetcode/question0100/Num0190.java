@@ -1,4 +1,4 @@
-package com.wyk.algorithm.leetcode.question0200;
+package com.wyk.algorithm.leetcode.question0100;
 
 /**
  * @Author: wyk
